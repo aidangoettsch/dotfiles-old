@@ -1,0 +1,34 @@
+[global_config]
+  handle_size = 0
+  title_hide_sizetext = True
+  title_inactive_bg_color = "#7bffeb"
+  title_receive_bg_color = "#7bffeb"
+  title_transmit_bg_color = "#000000"
+  title_use_system_font = False
+[keybindings]
+  broadcast_all = None
+  broadcast_group = None
+  broadcast_off = None
+  edit_window_title = None
+  full_screen = None
+  go_down = None
+  go_left = None
+  go_right = None
+  go_up = None
+  hide_window = None
+  layout_launcher = None
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_image = None
+    foreground_color = "#ffffff"
+    scrollbar_position = hidden
+    show_titlebar = False
