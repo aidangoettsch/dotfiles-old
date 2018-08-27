@@ -43,17 +43,19 @@ echo 127.0.1.1	${NEW_HOSTNAME}.localdomain ${NEW_HOSTNAME} >> /etc/hosts
 
 echo "What platform is this?"
 select platform in "Physical" "VirtualBox"; do
-    case ${platform} in
+    case $REPLY in
         1 ) setup/platform/setup_physical.sh;;
         2 ) setup/platform/setup_virtualbox.sh;;
     esac
+    break
 done
 
 echo "What OS is this?"
 select os in "Arch Linux"; do
-    case ${os} in
-        "Arch Linux" ) setup/os/setup_arch.sh
+    case $REPLY in
+        1 ) setup/os/setup_arch.sh
     esac
+    break
 done
 
 printf "${BLUE}Cloning Oh My Zsh...${NORMAL}\n"
