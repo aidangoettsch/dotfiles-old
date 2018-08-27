@@ -32,7 +32,7 @@ passwd ${NEW_USER}
 groupadd sudo
 echo "%sudo ALL=(ALL) ALL" > /etc/sudoers.d/sudo_group
 usermod -aG sudo ${NEW_USER}
-mnkdir /home/${NEW_USER}/tmp-setup
+mkdir /home/${NEW_USER}/tmp-setup
 
 echo "Setting hostname"
 read -p "Username: " NEW_HOSTNAME
@@ -42,10 +42,7 @@ echo "::1	localhost" >> /etc/hosts
 echo 127.0.1.1	${NEW_HOSTNAME}.localdomain ${NEW_HOSTNAME} >> /etc/hosts
 
 echo "What platform is this?"
-echo "1. Physical"
-echo "2. VirtualBox"
-echo "3. WSL"
-select platform in "Yes" "No"; do
+select platform in "Physical" "VirtualBox"; do
     case ${platform} in
         1 ) setup/platform/setup_physical.sh;;
         2 ) setup/platform/setup_virtualbox.sh;;
@@ -53,10 +50,9 @@ select platform in "Yes" "No"; do
 done
 
 echo "What OS is this?"
-echo "1. Arch Linux"
-select os in "Yes" "No"; do
+select os in "Arch Linux"; do
     case ${os} in
-        1 ) setup/os/setup_arch.sh
+        "Arch Linux" ) setup/os/setup_arch.sh
     esac
 done
 
