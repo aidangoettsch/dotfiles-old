@@ -34,7 +34,7 @@ cd /home/${NEW_USER}/tmp-setup/yay
 sudo -su ${NEW_USER} makepkg -si
 
 echo "Installing i3, neofetch, ranger, unifont, pywal, feh"
-pacman -S --noconfirm i3-gaps neofetch ranger bdf-unifont python-pywal feh
+pacman -S --noconfirm i3-gaps neofetch ranger bdf-unifont python-setuptools python-pywal feh
 
 echo "Installing polybar, catimg"
 echo "Enter the new user password again again (twice)"
@@ -42,4 +42,5 @@ sudo -su ${NEW_USER} yay -S --noconfirm polybar catimg
 
 echo "Installing fonts"
 pacman -S --noconfirm powerline powerline-fonts
+mkdir /home/${NEW_USER}/.fonts
 wget https://github.com/google/material-design-icons/raw/master/iconfont/MaterialIcons-Regular.ttf -o /home/${NEW_USER}/.fonts/MaterialIcons-Regular.ttf

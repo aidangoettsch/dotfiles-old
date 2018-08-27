@@ -36,7 +36,7 @@ usermod -aG sudo ${NEW_USER}
 mkdir /home/${NEW_USER}/tmp-setup
 
 echo "Setting hostname"
-read -p "Username: " NEW_HOSTNAME
+read -p "Hostname: " NEW_HOSTNAME
 export NEW_HOSTNAME=NEW_HOSTNAME
 echo ${NEW_HOSTNAME} > /etc/hostname
 echo "127.0.0.1	localhost" >> /etc/hosts
@@ -71,8 +71,9 @@ env git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git "$ZSH" || 
     exit 1
 }
 
-wal -i
+. setup/copy.sh
+
+sudo -u ${NEW_USER} wal -i /home/${NEW_USER}/Wallpaper/the_dark_mountain-wallpaper-5120x2880.jpg
 
 rm -rf /home/${NEW_USER}/tmp-setup
 
-. setup/copy.sh
