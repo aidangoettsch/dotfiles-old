@@ -34,7 +34,7 @@
             "border": "normal",
             "floating": "auto_off",
             "layout": "splith",
-            "percent": 0.6,
+            "percent": 0.5,
             "type": "con",
             "nodes": [
                 {
@@ -42,7 +42,7 @@
                     "border": "normal",
                     "floating": "auto_off",
                     "layout": "splitv",
-                    "percent": 0.6,
+                    "percent": 0.4,
                     "type": "con",
                     "nodes": [
                         {
@@ -55,8 +55,8 @@
                                "x": 0,
                                "y": 0
                             },
-                            "name": "yayes2@Windock: ~",
-                            "percent": 0.6,
+                            "name": "%USER%@%HOSTNAME%: ~",
+                            "percent": 0.5,
                             "swallows": [
                                {
                                "class": "^Termite$",
@@ -77,8 +77,8 @@
                                "x": 0,
                                "y": 0
                             },
-                            "name": "yayes2@Windock: ~",
-                            "percent": 0.4,
+                            "name": "%USER%@%HOSTNAME%: ~",
+                            "percent": 0.5,
                             "swallows": [
                                {
                                "class": "^Termite$",
@@ -101,8 +101,8 @@
                        "x": 0,
                        "y": 0
                     },
-                    "name": "yayes2@Windock: ~",
-                    "percent": 0.4,
+                    "name": "%USER%@%HOSTNAME%: ~",
+                    "percent": 0.5,
                     "swallows": [
                        {
                        "class": "^Termite$",
@@ -128,7 +128,7 @@
        "x": 0,
        "y": 0
     },
-    "name": "yayes2@Windock: ~",
+    "name": "%USER%@%HOSTNAME%: ~",
     "percent": 0.5,
     "swallows": [
        {

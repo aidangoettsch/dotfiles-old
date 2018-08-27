@@ -7,6 +7,7 @@
 # See this wiki page for more info:
 # https://github.com/dylanaraps/neofetch/wiki/Customizing-Info
 print_info() {
+    prin ""
     info title
     info underline
 
@@ -24,6 +25,7 @@ print_info() {
     info "Icons" icons
     info "Terminal" term
     info "Terminal Font" term_font
+    info "Public IP" public_ip
     info "CPU" cpu
     info "GPU" gpu
     info "Memory" memory
@@ -34,7 +36,6 @@ print_info() {
     # info "Font" font
     # info "Song" song
     # info "Local IP" local_ip
-    # info "Public IP" public_ip
     # info "Users" users
     # info "Install Date" install_date
     # info "Locale" locale # This only works on glibc systems.
@@ -252,7 +253,7 @@ gpu_type="all"
 # Example:
 # on:  '1920x1080 @ 60Hz'
 # off: '1920x1080'
-refresh_rate="off"
+refresh_rate="on"
 
 
 # Gtk Theme / Icons / Font
@@ -546,7 +547,7 @@ disk_display="off"
 # Default:  'ascii'
 # Values:   'ascii', 'caca', 'catimg', 'jp2a', 'iterm2', 'off', 'tycat', 'w3m'
 # Flag:     --backend
-image_backend="ascii"
+image_backend="catimg"
 
 # Image Source
 #

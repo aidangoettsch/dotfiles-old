@@ -9,7 +9,7 @@
        "x": 0,
        "y": 0
     },
-    "name": "yayes2@Windock: ~",
+    "name": "%USER%@%HOSTNAME%: ~",
     "percent": 0.5,
     "swallows": [
        {
@@ -116,7 +116,7 @@
                "x": 0,
                "y": 0
             },
-            "name": "yayes2@Windock: ~",
+            "name": "%USER%@%HOSTNAME%: ~",
             "percent": 0.333333333333333,
             "swallows": [
                {

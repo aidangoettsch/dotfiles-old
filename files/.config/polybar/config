@@ -8,11 +8,11 @@
 ;=====================================================
 
 [colors]
-background = #222
-background-alt = #444
+background = #111
+background-alt = #111
 foreground = #dfdfdf
 foreground-alt = #55
-primary = #ffb52a
+primary = #00ffe0
 secondary = #e60053
 alert = #bd2c40
 
@@ -21,12 +21,12 @@ margin-top = 5
 margin-bottom = 5
 
 [bar/example]
-monitor = ${env:0:0}
-width = 100%
-height = 27
-offset-x = 0
-offset-y = 0
-
+monitor = default
+width = 2528
+height = 32
+offset-x = 16
+offset-y = 16
+override-redirect = true
 ;background = ${xrdb:color9}
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -36,8 +36,10 @@ overline-color = #f00
 underline-size = 2
 underline-color = #00f
 
-border-bottom-size = 2
-border-bottom-color = #333
+# border-left-size = 16
+# border-right-size = 16
+# border-bottom-size = 16
+# border-color = #00ffffff
 
 padding-left = 0
 padding-right = 2
@@ -45,12 +47,12 @@ module-margin-left = 1
 module-margin-right = 2
 
 font-0 = fixed:pixelsize=10
-font-1 = unifont:fontformat=truetype:size=6:heavy;-2
-font-2 = siji:pixelsize=10
+#font-1 = unifont:fontformat=truetype:size=6:heavy;-2
+font-1 = MaterialIcons:pixelsize=10
 
-modules-left = bspwm i3 xwindow
+modules-left = i3 xwindow
 modules-center = 
-modules-right = xbacklight volume xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = xbacklight volume memory cpu battery date
 
 tray-position = right
 tray-padding = 2
@@ -68,7 +70,7 @@ tray-padding = 2
 ;scroll-up = i3wm-wsnext
 ;scroll-down = i3wm-wsprev
 
-
+bottom = true
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
@@ -125,22 +127,27 @@ label-mode-padding = 2
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-label-focused = %index%
+label-focused = %icon%
 label-focused-background = ${module/bspwm.label-focused-background}
 label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
-label-unfocused = %index%
+label-unfocused = %icon%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 
-label-urgent = %index%!
+label-urgent = %icon%!
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 
-label-visible = %index%
+label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
 
 [module/mpd]
 type = internal/mpd
@@ -189,7 +196,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+# format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage%%
@@ -197,7 +204,7 @@ label = %percentage%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+# format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
@@ -222,10 +229,9 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
-[module/eth]
+[module/wired-network]
 type = internal/network
-interface = eth0
-interval = 3.0
+interface = eth9
 
 format-connected-underline = #55aa55
 format-connected-prefix = " "
@@ -246,7 +252,7 @@ date-alt = " %Y-%m-%d"
 time = %H:%M
 time-alt = %H:%M:%S
 
-format-prefix = 
+#format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 

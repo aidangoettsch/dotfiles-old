@@ -174,33 +174,40 @@ mode "resize" {
 
 bindsym Mod1+r mode "resize"
 
-bar {
-    status_command i3status
-}
+# bar {
+#    status_command i3status
+# }
+
+exec polybar -r example
 
 for_window [class="^.*"] border pixel 0
 gaps inner 16
 gaps outer 1
-
-exec --no-startup-id ~/.fehbg &
+gaps bottom 48
 # exec --no-startup-id compton -b
 exec --no-startup-id wal -R
 
 # Workspace 1
-exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/yayes2/.config/i3/workspace-1.json'"
-exec termite --title htop -e "bash -ic "htop""
-exec termite --title tty-clock -e "bash -ic 'tty-clock -c -C 4 -D -s -n'"
-exec termite --title neofetch -e "bash -ic 'neofetch; tput civis'" --hold
-exec termite --title ranger -e "bash -ic "ranger""
+exec --no-startup-id "i3-msg 'workspace 1; append_layout /home/%USER%/.config/i3/workspace-1.json'"
+exec termite --title htop -e "zsh -ic "htop""
+exec termite --title tty-clock -e "zsh -ic 'tty-clock -c -C 4 -D -s -n'"
+exec termite --title neofetch -e "zsh -ic 'neofetch; tput civis'" --hold
+exec termite --title ranger -e "zsh -ic "ranger""
 exec termite --title scratchpad
 
+# Workspace 2
+exec --no-startup-id i3-msg 'workspace 2; exec termite --title code -e "zsh -is eval cd %DATA_DIR%/Code"'
+
 # Workspace 3
+exec --no-startup-id i3-msg 'workspace 3; exec termite --title ctf -e "zsh -is eval cd %DATA_DIR%/CTF"'
+
+# Workspace 4
 exec --no-startup-id "ssh-agent -s > ~/.ssh_agent"
-exec --no-startup-id "i3-msg 'workspace 3; append_layout /home/yayes2/.config/i3/workspace-ssh-nas.json'"
-exec termite --title ssh-nas-scratchpad -e "bash -ic '~/scripts/ssh-nas-primary.sh'"
-exec termite --title ssh-nas-htop -e "bash -ic '~/scripts/ssh-nas.sh 0 0'"
-exec termite --title ssh-nas-bmon -e "bash -ic '~/scripts/ssh-nas.sh 1 1'"
-exec termite --title ssh-nas-claymore -e "bash -ic '~/scripts/ssh-nas.sh 2 0'"
-exec termite --title ssh-nas-minecraft -e "bash -ic '~/scripts/ssh-nas.sh 3 1'"
+exec --no-startup-id "i3-msg 'workspace 4; append_layout /home/%USER%/.config/i3/workspace-ssh-nas.json'"
+exec termite --title ssh-nas-scratchpad -e "zsh -ic '/home/%USER%/scripts/ssh-nas-primary.sh'"
+exec termite --title ssh-nas-htop -e "zsh -ic '/home/%USER%/scripts/ssh-nas.sh 0 0'"
+exec termite --title ssh-nas-bmon -e "zsh -ic '/home/%USER%/scripts/ssh-nas.sh 1 1'"
+exec termite --title ssh-nas-claymore -e "zsh -ic '/home/%USER%/scripts/ssh-nas.sh 2 0'"
+exec termite --title ssh-nas-minecraft -e "zsh -ic '/home/%USER%/scripts/ssh-nas.sh 3 1'"
 
 exec --no-startup-id "i3-msg 'workspace 1'"
