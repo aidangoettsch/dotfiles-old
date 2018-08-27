@@ -27,6 +27,7 @@ set -e
 
 echo "Creating a user"
 read -p "Username: " NEW_USER
+export NEW_USER=NEW_USER
 useradd -mU ${NEW_USER}
 passwd ${NEW_USER}
 groupadd sudo
@@ -36,6 +37,7 @@ mkdir /home/${NEW_USER}/tmp-setup
 
 echo "Setting hostname"
 read -p "Username: " NEW_HOSTNAME
+export NEW_HOSTNAME=NEW_HOSTNAME
 echo ${NEW_HOSTNAME} > /etc/hostname
 echo "127.0.0.1	localhost" >> /etc/hosts
 echo "::1	localhost" >> /etc/hosts
@@ -44,8 +46,8 @@ echo 127.0.1.1	${NEW_HOSTNAME}.localdomain ${NEW_HOSTNAME} >> /etc/hosts
 echo "What platform is this?"
 select platform in "Physical" "VirtualBox"; do
     case $REPLY in
-        1 ) setup/platform/setup_physical.sh;;
-        2 ) setup/platform/setup_virtualbox.sh;;
+        1 ) . setup/platform/setup_physical.sh;;
+        2 ) . setup/platform/setup_virtualbox.sh;;
     esac
     break
 done
@@ -53,7 +55,7 @@ done
 echo "What OS is this?"
 select os in "Arch Linux"; do
     case $REPLY in
-        1 ) setup/os/setup_arch.sh
+        1 ) . setup/os/setup_arch.sh
     esac
     break
 done
@@ -73,4 +75,4 @@ wal -i
 
 rm -rf /home/${NEW_USER}/tmp-setup
 
-setup/copy.sh
+. setup/copy.sh

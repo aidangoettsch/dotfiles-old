@@ -1,6 +1,6 @@
 #!/bin/sh
 
-pacman -Syu
+pacman -Syu --noconfirm
 
 echo "Installing ZSH"
 pacman -S --noconfirm zsh
