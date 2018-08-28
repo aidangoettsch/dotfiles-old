@@ -27,7 +27,7 @@ set -e
 
 echo "Creating a user"
 read -p "Username: " NEW_USER
-export NEW_USER=NEW_USER
+export NEW_USER=${NEW_USER}
 useradd -mU ${NEW_USER}
 passwd ${NEW_USER}
 groupadd sudo
@@ -37,7 +37,7 @@ mkdir /home/${NEW_USER}/tmp-setup
 
 echo "Setting hostname"
 read -p "Hostname: " NEW_HOSTNAME
-export NEW_HOSTNAME=NEW_HOSTNAME
+export NEW_HOSTNAME=${NEW_HOSTNAME}
 echo ${NEW_HOSTNAME} > /etc/hostname
 echo "127.0.0.1	localhost" >> /etc/hosts
 echo "::1	localhost" >> /etc/hosts

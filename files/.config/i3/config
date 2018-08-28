@@ -196,10 +196,10 @@ exec termite --title ranger -e "zsh -ic "ranger""
 exec termite --title scratchpad
 
 # Workspace 2
-exec --no-startup-id i3-msg 'workspace 2; exec termite --title code -e "zsh -is eval cd %DATA_DIR%/Code"'
+exec --no-startup-id i3-msg 'workspace 2; exec termite --title code -e "zsh -is eval cd %DATA_DIR%Code"'
 
 # Workspace 3
-exec --no-startup-id i3-msg 'workspace 3; exec termite --title ctf -e "zsh -is eval cd %DATA_DIR%/CTF"'
+exec --no-startup-id i3-msg 'workspace 3; exec termite --title ctf -e "zsh -is eval cd %DATA_DIR%CTF"'
 
 # Workspace 4
 exec --no-startup-id "ssh-agent -s > ~/.ssh_agent"
