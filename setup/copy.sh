@@ -1,6 +1,6 @@
 #!/bin/sh
 
- mkdir /home/${NEW_USER}/tmp-setup
+mkdir /home/${NEW_USER}/tmp-setup/files
 
 cp -r files/* /home/${NEW_USER}/tmp-setup/files/
 cp -r files/.config /home/${NEW_USER}/tmp-setup/files/
@@ -22,3 +22,5 @@ sed -i -e s\|%DATA_DIR%\|${DATA_DIR}\|g /home/${NEW_USER}/tmp-setup/files/.*rc
 cp -r /home/${NEW_USER}/tmp-setup/files/* /home/${NEW_USER}/
 cp -r /home/${NEW_USER}/tmp-setup/files/.config /home/${NEW_USER}/
 cp -r /home/${NEW_USER}/tmp-setup/files/.*rc /home/${NEW_USER}/
+
+chown -R ${NEW_USER}:${NEW_USER} /home/${NEW_USER}/
