@@ -184,7 +184,7 @@ for_window [class="^.*"] border pixel 0
 gaps inner 16
 gaps outer 1
 gaps bottom 48
-# exec --no-startup-id compton -b
+#FEAT:@COMPTON@ exec --no-startup-id compton -b
 exec --no-startup-id wal -R
 
 # Workspace 1

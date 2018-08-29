@@ -43,6 +43,6 @@ echo "Enter the new user password again again (twice)"
 sudo -su ${NEW_USER} yay -S --noconfirm polybar catimg
 
 echo "Installing fonts"
-pacman -S --noconfirm powerline powerline-fonts
+pacman -S --noconfirm powerline powerline-fonts wget
 mkdir /home/${NEW_USER}/.fonts
-wget https://github.com/google/material-design-icons/raw/master/iconfont/MaterialIcons-Regular.ttf -o /home/${NEW_USER}/.fonts/MaterialIcons-Regular.ttf
+wget https://github.com/google/material-design-icons/raw/master/iconfont/MaterialIcons-Regular.ttf -O /home/${NEW_USER}/.fonts/MaterialIcons-Regular.ttf
