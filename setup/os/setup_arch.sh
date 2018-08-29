@@ -54,6 +54,7 @@ mkdir -p build && cd build/
 ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
 make
 make install
+cd ${OLD_PWD}
 
 echo "Installing neofetch, ranger, unifont, pywal, feh"
 pacman -S --noconfirm neofetch ranger bdf-unifont python-setuptools python-pywal feh
