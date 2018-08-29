@@ -1,6 +1,7 @@
 #!/bin/sh
 
 pacman -Syu --noconfirm
+pacman -S --noconfirm base-devel
 
 echo "Installing ZSH"
 pacman -S --noconfirm zsh
@@ -36,6 +37,7 @@ sudo -su ${NEW_USER} makepkg -si
 cd ${OLD_PWD}
 
 echo "Installing i3"
+pacman -S --noconfirm libev libev-dev startup-notification xcb-util-cursor xcb-util-xrm libxkbcommon libxkbcommon-x11 yajl pango cairo
 # clone the repository
 git clone https://www.github.com/aidangoettsch/i3 /home/${NEW_USER}/tmp-setup/i3-gaps
 chown -R ${NEW_USER}:${NEW_USER} /home/${NEW_USER}/tmp-setup
