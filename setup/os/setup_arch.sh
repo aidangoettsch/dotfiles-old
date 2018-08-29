@@ -56,14 +56,21 @@ make
 make install
 cd ${OLD_PWD}
 
-echo "Installing neofetch, ranger, unifont, pywal, feh"
-pacman -S --noconfirm neofetch ranger bdf-unifont python-setuptools python-pywal feh
+echo "Installing neofetch, ranger, unifont, pywal, feh, termite"
+pacman -S --noconfirm neofetch ranger bdf-unifont python-setuptools python-pywal feh termite
 
 echo "Installing polybar, catimg"
 echo "Enter the new user password again again (twice)"
 sudo -su ${NEW_USER} yay -S --noconfirm polybar catimg
 
 echo "Installing fonts"
-pacman -S --noconfirm powerline powerline-fonts wget
+git clone https://github.com/powerline/fonts.git --depth=1 /home/${NEW_USER}/tmp-setup/powerline-fonts
+chown -R ${NEW_USER}:${NEW_USER} /home/${NEW_USER}/tmp-setup
+OLD_PWD=$(pwd)
+cd /home/${NEW_USER}/tmp-setup/powerline-fonts
+./install.sh
+cd ${OLD_PWD}
+
+pacman -S --noconfirm  wget
 mkdir /home/${NEW_USER}/.fonts
 wget https://github.com/google/material-design-icons/raw/master/iconfont/MaterialIcons-Regular.ttf -O /home/${NEW_USER}/.fonts/MaterialIcons-Regular.ttf
