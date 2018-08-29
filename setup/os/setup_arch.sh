@@ -30,8 +30,10 @@ echo "Enter the new user password again (twice)"
 echo "Also this is interactive lmao"
 git clone https://aur.archlinux.org/yay.git /home/${NEW_USER}/tmp-setup/yay
 chown -R ${NEW_USER} /home/${NEW_USER}
+OLD_PWD=$(pwd)
 cd /home/${NEW_USER}/tmp-setup/yay
 sudo -su ${NEW_USER} makepkg -si
+cd ${OLD_PWD}
 
 echo "Installing i3, neofetch, ranger, unifont, pywal, feh"
 pacman -S --noconfirm i3-gaps neofetch ranger bdf-unifont python-setuptools python-pywal feh
