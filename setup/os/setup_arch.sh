@@ -12,13 +12,13 @@ pacman -S --noconfirm git
 echo "Installing OpenSSH"
 pacman -S --noconfirm openssh
 
-if [INSTALL_X = true]
+if [ ${INSTALL_X} = true ]
 then
     echo "Installing X"
-    pacman -S --noconfirm xorg dex
+    pacman -S --noconfirm xorg xorg-xinit dex
 fi
 
-if [INSTALL_VBOX = true]
+if [ ${INSTALL_VBOX} = true ]
 then
     echo "Installing VirtualBox Guest Additions"
     pacman -S --noconfirm virtualbox-guest-utils
@@ -29,14 +29,32 @@ echo "Installing yay"
 echo "Enter the new user password again (twice)"
 echo "Also this is interactive lmao"
 git clone https://aur.archlinux.org/yay.git /home/${NEW_USER}/tmp-setup/yay
-chown -R ${NEW_USER} /home/${NEW_USER}
+chown -R ${NEW_USER}:${NEW_USER} /home/${NEW_USER}/tmp-setup
 OLD_PWD=$(pwd)
 cd /home/${NEW_USER}/tmp-setup/yay
 sudo -su ${NEW_USER} makepkg -si
 cd ${OLD_PWD}
 
-echo "Installing i3, neofetch, ranger, unifont, pywal, feh"
-pacman -S --noconfirm i3-gaps neofetch ranger bdf-unifont python-setuptools python-pywal feh
+echo "Installing i3"
+# clone the repository
+git clone https://www.github.com/aidangoettsch/i3 /home/${NEW_USER}/tmp-setup/i3-gaps
+chown -R ${NEW_USER}:${NEW_USER} /home/${NEW_USER}/tmp-setup
+OLD_PWD=$(pwd)
+cd /home/${NEW_USER}/tmp-setup/i3-gaps
+
+# compile & install
+autoreconf --force --install
+rm -rf build/
+mkdir -p build && cd build/
+
+# Disabling sanitizers is important for release versions!
+# The prefix and sysconfdir are, obviously, dependent on the distribution.
+../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
+make
+make install
+
+echo "Installing neofetch, ranger, unifont, pywal, feh"
+pacman -S --noconfirm neofetch ranger bdf-unifont python-setuptools python-pywal feh
 
 echo "Installing polybar, catimg"
 echo "Enter the new user password again again (twice)"
