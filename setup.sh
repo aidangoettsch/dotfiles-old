@@ -42,7 +42,7 @@ echo "Setting hostname"
 read -p "Hostname: " NEW_HOSTNAME
 export NEW_HOSTNAME=${NEW_HOSTNAME}
 echo ${NEW_HOSTNAME} > /etc/hostname
-echo "127.0.0.1	localhost" >> /etc/hosts
+echo "127.0.0.1	localhost" > /etc/hosts
 echo "::1	localhost" >> /etc/hosts
 echo 127.0.1.1	${NEW_HOSTNAME}.localdomain ${NEW_HOSTNAME} >> /etc/hosts
 
