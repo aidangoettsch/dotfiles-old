@@ -25,6 +25,9 @@ fi
 # which may fail on systems lacking tput or terminfo
 set -e
 
+chmod +x setup/*
+chmod +x setup/*/*
+
 echo "Creating a user"
 read -p "Username: " NEW_USER
 export NEW_USER=${NEW_USER}
