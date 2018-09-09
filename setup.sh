@@ -76,4 +76,5 @@ env git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git "$ZSH" || 
 sudo -u ${NEW_USER} wal -i /home/${NEW_USER}/Wallpapers/the_dark_mountain-wallpaper-5120x2880.jpg
 
 rm -rf /home/${NEW_USER}/tmp-setup
-
+mkdir ${DATA_DIR}/Code
+mkdir ${DATA_DIR}/CTF
