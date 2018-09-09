@@ -78,3 +78,4 @@ sudo -u ${NEW_USER} wal -i /home/${NEW_USER}/Wallpapers/the_dark_mountain-wallpa
 rm -rf /home/${NEW_USER}/tmp-setup
 mkdir ${DATA_DIR}/Code
 mkdir ${DATA_DIR}/CTF
+chown -R ${NEW_USER}:${NEW_USER} ${DATA_DIR}
