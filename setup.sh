@@ -25,6 +25,9 @@ fi
 # which may fail on systems lacking tput or terminfo
 set -e
 
+chmod +x setup/*
+chmod +x setup/*/*
+
 echo "Creating a user"
 read -p "Username: " NEW_USER
 export NEW_USER=${NEW_USER}
@@ -39,7 +42,7 @@ echo "Setting hostname"
 read -p "Hostname: " NEW_HOSTNAME
 export NEW_HOSTNAME=${NEW_HOSTNAME}
 echo ${NEW_HOSTNAME} > /etc/hostname
-echo "127.0.0.1	localhost" >> /etc/hosts
+echo "127.0.0.1	localhost" > /etc/hosts
 echo "::1	localhost" >> /etc/hosts
 echo 127.0.1.1	${NEW_HOSTNAME}.localdomain ${NEW_HOSTNAME} >> /etc/hosts
 
@@ -77,4 +80,6 @@ env git clone --depth=1 https://github.com/robbyrussell/oh-my-zsh.git "$ZSH" || 
 sudo -u ${NEW_USER} wal -i /home/${NEW_USER}/Wallpapers/the_dark_mountain-wallpaper-5120x2880.jpg
 
 rm -rf /home/${NEW_USER}/tmp-setup
-
+mkdir ${DATA_DIR}/Code
+mkdir ${DATA_DIR}/CTF
+chown -R ${NEW_USER}:${NEW_USER} ${DATA_DIR}
