@@ -46,7 +46,7 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10
+font-0 = Hack:pixelsize=10
 #font-1 = unifont:fontformat=truetype:size=6:heavy;-2
 font-1 = MaterialIcons:pixelsize=10
 
