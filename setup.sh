@@ -44,10 +44,11 @@ echo "::1	localhost" >> /etc/hosts
 echo 127.0.1.1	${NEW_HOSTNAME}.localdomain ${NEW_HOSTNAME} >> /etc/hosts
 
 echo "What platform is this?"
-select platform in "Physical" "VirtualBox"; do
+select platform in "Physical" "VirtualBox" "WSL"; do
     case $REPLY in
         1 ) . setup/platform/setup_physical.sh;;
         2 ) . setup/platform/setup_virtualbox.sh;;
+        3 ) . setup/platform/setup_wsl.sh;;
     esac
     break
 done

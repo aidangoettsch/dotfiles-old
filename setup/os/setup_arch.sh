@@ -1,7 +1,7 @@
 #!/bin/sh
 
 pacman -Syu --noconfirm
-pacman -S --noconfirm base-devel
+#pacman -S --noconfirm base-devel
 
 echo "Installing ZSH"
 pacman -S --noconfirm zsh
@@ -56,19 +56,22 @@ make
 make install
 cd ${OLD_PWD}
 
-echo "Installing neofetch, ranger, unifont, pywal, feh, termite"
-pacman -S --noconfirm neofetch ranger bdf-unifont python-setuptools python-pywal feh termite
+echo "Installing tty-clock"
+sudo -u ${NEW_USER} yay -S --noconfirm tty-clock
+
+echo "Installing neofetch, ranger, unifont, pywal, feh, termite, htop"
+pacman -S --noconfirm neofetch ranger bdf-unifont python-setuptools python-pywal feh termite htop
 
 echo "Installing polybar, catimg"
 echo "Enter the new user password again again (twice)"
-sudo -su ${NEW_USER} yay -S --noconfirm polybar catimg
+sudo -u ${NEW_USER} yay -S --noconfirm polybar catimg
 
 echo "Installing fonts"
 git clone https://github.com/powerline/fonts.git --depth=1 /home/${NEW_USER}/tmp-setup/powerline-fonts
 chown -R ${NEW_USER}:${NEW_USER} /home/${NEW_USER}/tmp-setup
 OLD_PWD=$(pwd)
 cd /home/${NEW_USER}/tmp-setup/powerline-fonts
-./install.sh
+sudo -su ${NEW_USER} ./install.sh
 cd ${OLD_PWD}
 
 pacman -S --noconfirm  wget
